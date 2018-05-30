@@ -1,0 +1,34 @@
+Express implements a web server.
+
+Create new server with;
+
+app = express();
+
+Create "routes" with:
+
+app.get('index', (request,response)=>{
+    //...
+})
+
+Server static file by using express midlware use
+
+app.use(express.static(__dirname + '/public')); // server static content
+// from directory /public
+
+Templating engine:
+handlebars -  and many more
+https://handlebarsjs.com
+
+Send output:
+app.send();
+
+Set the view engine to handle bars:
+app.set('view engine', 'hbs') // after vir ;
+
+Render a template -html or other
+
+Use helmet to secure node:
+npm install helmet --save
+
+var helmet = require('helmet');
+app.use(helmet());
