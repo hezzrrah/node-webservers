@@ -16,10 +16,16 @@ app.use((req, res, next) => {
             console.log("General failure in logging module.");
         }
     })
-
     next();
 });
 
+/*
+app.use((req, res, next) => {
+    res.render('maintenance.hbs', {
+        pageTitle: "Maintenance windows",
+    });
+});
+*/
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
 })
