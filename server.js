@@ -1,7 +1,10 @@
+var helmet = require('helmet');
+
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
+app.use(helmet());
 const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -55,6 +58,13 @@ app.get('/about', (req, res) => {
 app.get('/profile', (req, res) => {
     res.send("My Profile it is.")
 });
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects page',
+        heading: "Github Projects Portfolio"
+    });
+})
 
 app.get('/bad', function(request, response) {
     errorMsg = {
